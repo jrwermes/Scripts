@@ -1,6 +1,6 @@
 #Specify ISO Source location
 
-$FoD_Source = "$env:USERPROFILE\Downloads\W10RSAT_FOD\1903\1903_FoD_Disk1.iso"
+$FoD_Source = "$env:USERPROFILE\Downloads\1903_FoD_Disk1.iso"
 
 #Mount ISO
 
@@ -19,13 +19,13 @@ $dest = New-Item -ItemType Directory -Path "$env:SystemDrive\temp\RSAT_1903_$lan
 #get RSAT files 
 
 Get-ChildItem ($path+":\") -name -recurse -include *~amd64~~.cab,*~wow64~~.cab,*~amd64~$lang~.cab,*~wow64~$lang~.cab -exclude *languagefeatures*,*Holographic*,*NetFx3*,*OpenSSH*,*Msix* |
-ForEach-Object {copy-item -Path ($path+ì:\î+$_) -Destination $dest.FullName -Force -Container}
+ForEach-Object {copy-item -Path ($path+‚Äú:\‚Äù+$_) -Destination $dest.FullName -Force -Container}
 
 #get metadata
 
 copy-item ($path+":\metadata") -Destination $dest.FullName -Recurse
 
-copy-item ($path +ì:\"+ìFoDMetadata_Client.cabî) -Destination $dest.FullName -Force -Container
+copy-item ($path +‚Äú:\"+‚ÄúFoDMetadata_Client.cab‚Äù) -Destination $dest.FullName -Force -Container
 
 #Dismount ISO
 
